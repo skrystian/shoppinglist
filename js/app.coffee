@@ -52,7 +52,7 @@ $ ->
             todo = new Todo model: item
             $('#list').append todo.render()
         onChangeModel: =>
-            $(".numberOfTasks").html("<b>" + @list.length + "</b>" + " tasks")
+            $(".numberOfTasks").html("<b>" + @list.length + "</b>" + " items")
 
         events:
             'click #addItemBtn': 'onClickAddItem'
@@ -104,29 +104,6 @@ $ ->
 
     ###
 
-
-    ###
-    for i in [1..numberOfLvl] by 1
-        $("#listlvl" + i.toString() + " > li").mouseover ->
-            $(this).find('.leftMenuItemsCounter').hide()
-            $(this).find('.leftMenuItemsConfig').show()
-        $("#listlvl" + i.toString() + " > li").mouseout ->
-            $(this).find('.leftMenuItemsConfig').hide()
-            $(this).find('.leftMenuItemsCounter').show()
-
-        $("#listlvl" + i.toString() + " > li").bind "tap", ->
-            clearSelected($(this).parent().attr 'id')
-            lvl = $(this).parent().attr 'id'
-            lvl = lvl.substr(lvl.length - 1, 1)
-            itemName = $(this).find('a').html()
-            switch parseInt(lvl)
-                when 1 then setContainerTitle('showContainer', itemName)
-                when 2 then setContainerTitle('eventContainer', itemName)
-                when 3 then setContainerTitle('folderContainer', itemName)
-                else
-            $(this).addClass "selectedItem"
-   
-    ###
 
     # color tip         
 
